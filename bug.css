@@ -1,0 +1,19 @@
+The CSS specificity rules can lead to unexpected styling issues.  For example, consider this scenario:
+
+```css
+div {
+  color: blue;
+}
+
+.special {
+  color: red;
+}
+
+.special div {
+  color: green; 
+}
+
+<div class="special"></div>
+```
+
+Intuitively, one might expect the text to be red because of the `class="special"`.  However, the more specific selector `.special div` overrides it, resulting in green text. This can be difficult to debug, especially in large CSS files with many overlapping rules.
